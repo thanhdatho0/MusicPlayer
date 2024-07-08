@@ -42,6 +42,24 @@ const app = {
       path: "./mp3/ThuDoCypher.mp3",
       img: "./img/ThuDoCypher.jpg",
     },
+    {
+      name: "Thủ dô Cypher",
+      singer: "Low G, MCK, Orijin",
+      path: "./mp3/ThuDoCypher.mp3",
+      img: "./img/ThuDoCypher.jpg",
+    },
+    {
+      name: "Thủ dô Cypher",
+      singer: "Low G, MCK, Orijin",
+      path: "./mp3/ThuDoCypher.mp3",
+      img: "./img/ThuDoCypher.jpg",
+    },
+    {
+      name: "Thủ dô Cypher",
+      singer: "Low G, MCK, Orijin",
+      path: "./mp3/ThuDoCypher.mp3",
+      img: "./img/ThuDoCypher.jpg",
+    },
   ],
 
   render: function () {
@@ -142,6 +160,7 @@ const app = {
       else this.nextSong();
       this.render();
       audio.play();
+      this.scrollToActivatedSong();
     };
 
     prev.onclick = () => {
@@ -149,6 +168,7 @@ const app = {
       else this.prevSong();
       this.render();
       audio.play();
+      this.scrollToActivatedSong();
     };
 
     random.onclick = () => {
@@ -203,6 +223,15 @@ const app = {
     this.loadCurrentSong();
   },
 
+  scrollToActivatedSong: function () {
+    setTimeout(() => {
+      $(".song.active").scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }, 400);
+  },
+
   start: function () {
     //Định nghĩa thuộc tính
     this.defineProperties();
@@ -212,6 +241,8 @@ const app = {
 
     //Load bài hát hiện tại
     this.loadCurrentSong();
+
+    this.scrollToActivatedSong();
 
     //Render UI
     this.render();
